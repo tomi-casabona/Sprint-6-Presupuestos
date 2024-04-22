@@ -17,7 +17,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react-refresh/only-export-components": [
-      "warn",
+      "off",
       { allowConstantExport: true },
     ],
   },
