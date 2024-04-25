@@ -1,18 +1,24 @@
 import { useState } from "react";
 import { AgregateOptionsInput } from "./AgregateOptionsInput";
-import { useFormChangeContext } from "../../context/FormProvider";
-
+import { useFormContext } from "../../context/FormProvider";
 
 export const Checkbox = ({ type, price }) => {
   const [check, setCheck] = useState(false);
- const setTotal = useFormChangeContext(); 
 
-  const handleCheckbox = () => {
-    check === false ? setTotal(+price) : setTotal(-price);
-    setCheck(!check);
-  };
+  const form = useFormContext();
 
   const webCondition = type === "Web" && check === true;
+  const handleCheckbox = () => {
+    if (check === false) {
+      form.sumTotal(+price);
+    } else if (type === "Web") {
+      form.sumTotal(-price - form.additions);
+      form.sumAdditions(-form.additions);
+    } else {
+      form.sumTotal(-price);
+    }
+    setCheck(!check);
+  };
 
   return (
     <div className="flex flex-col justify-evenly items-center shadow-2xl rounded-2xl bg-white hover:ring-2 hover:ring-green-600">
