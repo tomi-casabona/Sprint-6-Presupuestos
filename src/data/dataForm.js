@@ -15,3 +15,8 @@ export const dataForm = [
     price: 500,
   },
 ];
+
+export const webAdditions = [
+  { id: 1, type: "Number of pages", price: 30 },
+  { id: 2, type: "Number of lenguages", price: 30 },
+];

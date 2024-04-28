@@ -1,22 +1,21 @@
 import { useState } from "react";
 import { useFormContext } from "../../context/FormProvider";
 
-export const AgregateOptionsInput = ({ option }) => {
+export const AgregateOptionsInput = ({ option, price }) => {
   const form = useFormContext();
   const [additions, setAdditions] = useState(0);
 
   const handleClickUp = () => {
     setAdditions(additions + 1);
-    form.sumAdditions(+30);
-    form.sumTotal(+30);
+    form.sumAdditions(+price);
+    form.sumTotal(+price);
   };
 
   const handleClickDown = () => {
     if (additions === 0) return;
     setAdditions(additions - 1);
-    form.sumAdditions(-30);
-    form.sumTotal(-30);
-
+    form.sumAdditions(-price);
+    form.sumTotal(-price);
   };
 
   return (

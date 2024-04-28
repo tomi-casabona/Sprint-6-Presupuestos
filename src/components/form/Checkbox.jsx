@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { AgregateOptionsInput } from "./AgregateOptionsInput";
 import { useFormContext } from "../../context/FormProvider";
+import { webAdditions } from "../../data/dataForm";
 
 export const Checkbox = ({ type, price }) => {
   const [check, setCheck] = useState(false);
 
   const form = useFormContext();
 
-  const webCondition = type === "Web" && check === true;
   const handleCheckbox = () => {
     if (check === false) {
       form.sumTotal(+price);
@@ -46,8 +46,19 @@ export const Checkbox = ({ type, price }) => {
           <p className="font-medium text-base mx-2">Chose</p>
         </div>
       </div>
-      {webCondition && <AgregateOptionsInput option="Number of pages" />}
-      {webCondition && <AgregateOptionsInput option="Number of lenguajes" />}
+      {webAdditions.map(
+        (element) =>
+          type === "Web" &&
+          check === true && (
+            <AgregateOptionsInput
+              key={element.id}
+              option={element.type}
+              price={element.price}
+            />
+          )
+      )}
+      {/* {type === "Web" && check === true && <AgregateOptionsInput option="Number of pages" />}
+      {type === "Web" && check === true && <AgregateOptionsInput option="Number of lenguajes" />} */}
     </div>
   );
 };
