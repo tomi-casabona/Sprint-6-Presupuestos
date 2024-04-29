@@ -56,9 +56,7 @@ export const Checkbox = ({ type, price }) => {
               price={element.price}
             />
           )
-      )}
-      {/* {type === "Web" && check === true && <AgregateOptionsInput option="Number of pages" />}
-      {type === "Web" && check === true && <AgregateOptionsInput option="Number of lenguajes" />} */}
+      )}      
     </div>
   );
 };
