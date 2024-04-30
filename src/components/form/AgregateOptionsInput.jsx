@@ -1,27 +1,24 @@
 import { useState } from "react";
 import { useFormContext } from "../../context/FormProvider";
 
-export const AgregateOptionsInput = ({ option, price }) => {
+export const AgregateOptionsInput = ({ addition }) => {
   const form = useFormContext();
   const [value, setValue] = useState(0);
 
   const handleClickUp = () => {
     setValue(value + 1);
-    form.sumAdditions(+price);
-    form.sumTotal(+price);
+    form.changeAdditionQuantity(addition.id, "up");
   };
 
   const handleClickDown = () => {
-    
     if (value === 0) return;
+    form.changeAdditionQuantity(addition.id, "down");
     setValue(value - 1);
-    form.sumAdditions(-price);
-    form.sumTotal(-price);
   };
 
   return (
     <div className="flex self-end px-20">
-      <p className="font-medium text-base">{option}</p>
+      <p className="font-medium text-base">{addition.option}</p>
       <div className="flex justify-center items-center ml-4">
         <button
           onClick={handleClickDown}
@@ -30,6 +27,7 @@ export const AgregateOptionsInput = ({ option, price }) => {
           -
         </button>
         <input
+          readOnly
           type="text"
           value={value}
           className="w-10 h-7 border-2 border-gray-300 rounded text-center"

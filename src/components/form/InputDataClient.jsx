@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFormContext } from "../../context/FormProvider";
 
-export const DataCliente = () => {
+export const InputDataClient = () => {
   // Define el estado para almacenar los valores de los inputs
   const [clientData, setClientData] = useState({
     name: "",
