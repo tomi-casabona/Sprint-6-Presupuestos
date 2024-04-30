@@ -3,17 +3,18 @@ import { useFormContext } from "../../context/FormProvider";
 
 export const AgregateOptionsInput = ({ option, price }) => {
   const form = useFormContext();
-  const [additions, setAdditions] = useState(0);
+  const [value, setValue] = useState(0);
 
   const handleClickUp = () => {
-    setAdditions(additions + 1);
+    setValue(value + 1);
     form.sumAdditions(+price);
     form.sumTotal(+price);
   };
 
   const handleClickDown = () => {
-    if (additions === 0) return;
-    setAdditions(additions - 1);
+    
+    if (value === 0) return;
+    setValue(value - 1);
     form.sumAdditions(-price);
     form.sumTotal(-price);
   };
@@ -30,7 +31,7 @@ export const AgregateOptionsInput = ({ option, price }) => {
         </button>
         <input
           type="text"
-          value={additions}
+          value={value}
           className="w-10 h-7 border-2 border-gray-300 rounded text-center"
         />
         <button

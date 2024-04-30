@@ -9,21 +9,48 @@ export function useFormContext() {
 export function FormProvider({ children }) {
   const [total, setTotal] = useState(0);
   const [additions, setAdditions] = useState(0);
+  const [client, setClient] = useState(null);
+  const [services, setServices] = useState([]);
+  client;
 
+  function sendService(newService) {
+    let newArrayServices = [...services];
+    newArrayServices.push(newService);
+    setServices(newArrayServices);
+  }
 
+  function removeService(serviceForRemove) {
+    let newArrayServices = [...services];
+    newArrayServices.splice(newArrayServices.indexOf(serviceForRemove));
+    setServices(newArrayServices);
+  }
 
-  function sumAdditions(newAddition){
-setAdditions(additions + newAddition);
+  function sendClientData(newClient) {
+    setClient(newClient);
+    console.log(newClient);
+  }
+
+  function sumAdditions(newAddition) {
+    setAdditions(additions + newAddition);
   }
 
   function sumTotal(ad) {
     return setTotal(total + ad);
-  } 
+  }
 
   return (
-    <formContext.Provider value={{ total, sumTotal, additions, sumAdditions }}>
+    <formContext.Provider
+      value={{
+        total,
+        sumTotal,
+        additions,
+        sumAdditions,
+        sendClientData,
+        sendService,
+        removeService,
+      }}
+    >
       {children}
     </formContext.Provider>
   );
-
 }

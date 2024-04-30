@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AgregateOptionsInput } from "./AgregateOptionsInput";
 import { useFormContext } from "../../context/FormProvider";
 import { webAdditions } from "../../data/dataForm";
+import Euro from "../../assets/Icons/Euro";
 
 export const Checkbox = ({ type, price }) => {
   const [check, setCheck] = useState(false);
@@ -9,20 +10,24 @@ export const Checkbox = ({ type, price }) => {
   const form = useFormContext();
 
   const handleCheckbox = () => {
+    let checkboxValues = { type: type, price: price, extras: "" };
     if (check === false) {
       form.sumTotal(+price);
+      form.sendService(checkboxValues);
     } else if (type === "Web") {
       form.sumTotal(-price - form.additions);
       form.sumAdditions(-form.additions);
+      form.removeService(checkboxValues);
     } else {
       form.sumTotal(-price);
+      form.removeService(checkboxValues);
     }
     setCheck(!check);
   };
 
   return (
-    <div className="flex flex-col justify-evenly items-center shadow-2xl rounded-2xl bg-white hover:ring-2 hover:ring-green-600">
-      <div className="flex justify-evenly items-center p-4 md:p-8 w-4/5 font-medium ">
+    <div className="flex flex-col justify-evenly items-center shadow-2xl md:w-4/5 w-full max-w-screen-lg rounded-2xl bg-white hover:ring-2 hover:ring-green-600">
+      <div className="flex flex-col justify-evenly items-center p-4 md:p-8 md:w-4/5 w-full font-medium sm:flex-row ">
         <div>
           <h3 className="font-bold text-xl mb-3">{type}</h3>
           <p className="font-medium text-base">
@@ -30,9 +35,9 @@ export const Checkbox = ({ type, price }) => {
           </p>
         </div>
 
-        <div className="font-extrabold text-2xl px-2 sm:px-5 md:px-16">
-          {" "}
-          ${price}{" "}
+        <div className="flex flex-row gap-5 items-center font-extrabold text-2xl px-2 ">
+          <Euro />
+          {price}
         </div>
 
         <div className="flex">
@@ -56,7 +61,7 @@ export const Checkbox = ({ type, price }) => {
               price={element.price}
             />
           )
-      )}      
+      )}
     </div>
   );
 };
