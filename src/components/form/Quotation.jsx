@@ -6,11 +6,11 @@ export function Quotation({ client }) {
   const form = useFormContext();
 
   return (
-    <div className="flex justify-between items-start shadow-2xl md:w-4/5 w-full max-w-screen-lg rounded-2xl bg-white hover:ring-2 hover:ring-green-600">
+    <div className="flex justify-evenly items-center shadow-2xl md:w-4/5 w-full max-w-screen-lg rounded-2xl bg-white hover:ring-2 hover:ring-green-600">
       <div className="flex flex-col p-4 md:p-8">
         <h3 className="font-bold text-lg mb-3">{client.name}</h3>
-        <p className="font-bold text-gray-400  text-xs">{client.email}</p>
-        <p className="font-bold text-gray-400  text-xs">{client.telephone}</p>
+        <p className="font-bold text-gray-400  text-sm">{client.email}</p>
+        <p className="font-bold text-gray-400  text-xm">{client.telephone}</p>
       </div>
 
       <div className="flex flex-col p-4 md:p-8">
@@ -19,12 +19,12 @@ export function Quotation({ client }) {
           <ul className="flex flex-col space-y-1">
             {form.services.map((service) =>
               service.type === "Web" ? (
-                <li className="font-bold text-xs" key={service.id}>
+                <li className="font-bold text-sm" key={service.id}>
                   {service.type}
                   <WebAggregation></WebAggregation>
                 </li>
               ) : (
-                <li className="font-bold text-xs" key={service.id}>
+                <li className="font-bold text-sm" key={service.id}>
                   {service.type}
                 </li>
               )

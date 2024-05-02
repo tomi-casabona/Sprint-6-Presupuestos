@@ -11,13 +11,7 @@ export function FormProvider({ children }) {
   const [total, setTotal] = useState(0);
   const [additionsArray, setAdditionsArray] = useState(WEB_ADDITIONS);
   const [services, setServices] = useState([]);
-  const [clients, setClients] = useState([
-    {
-      name: "Tomas Casabona",
-      telephone: "341712341234",
-      email: "tomas.casabona@Gmail.com",
-    },
-  ]);
+  const [clients, setClients] = useState([]);
 
   // Dependencias añadidas para recalcular el total cuando cambia `services` o `additionsArray`
   useEffect(() => {
@@ -29,7 +23,7 @@ export function FormProvider({ children }) {
       setAdditionsArray(WEB_ADDITIONS);
     }
   }, [services]);
-
+  
   function calculateTotal() {
     let totalServices = 0;
     let totalAdditions = 0;

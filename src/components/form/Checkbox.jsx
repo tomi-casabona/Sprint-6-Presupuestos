@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { AgregateOptionsInput } from "./AgregateOptionsInput";
 import { useFormContext } from "../../context/FormProvider";
 import Euro from "../../assets/Icons/Euro";
+import { ListAgregationImputs } from "./ListAgregationImputs";
 
 export const Checkbox = ({ productData }) => {
   const [check, setCheck] = useState(false);
@@ -19,7 +19,7 @@ export const Checkbox = ({ productData }) => {
 
   return (
     <div className="flex flex-col justify-evenly items-center shadow-2xl md:w-4/5 w-full max-w-screen-lg rounded-2xl bg-white hover:ring-2 hover:ring-green-600">
-      <div className="flex flex-col justify-evenly items-center p-4 md:p-8 md:w-4/5 w-full font-medium sm:flex-row ">
+      <div className="flex flex-col justify-evenly items-center md:p-8 md:w-4/5 w-full font-medium sm:flex-row ">
         <div>
           <h3 className="font-bold text-xl mb-3">{productData.type}</h3>
           <p className="font-medium text-base">
@@ -43,13 +43,7 @@ export const Checkbox = ({ productData }) => {
           <p className="font-medium text-base mx-2">Chose</p>
         </div>
       </div>
-      {form.additionsArray.map(
-        (element) =>
-          productData.type === "Web" &&
-          check === true && (
-            <AgregateOptionsInput key={element.id} addition={element} />
-          )
-      )}
+      <ListAgregationImputs productData={productData} check={check} />
     </div>
   );
 };
