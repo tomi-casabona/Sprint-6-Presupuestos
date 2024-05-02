@@ -1,7 +1,14 @@
+import { useState } from "react";
 import { useFormContext } from "../../context/FormProvider";
+import { Modal } from "./Modal";
 
 export const AgregateOptionsInput = ({ addition }) => {
   const form = useFormContext();
+  const [modal, setModal] = useState(false);
+
+  const closeModal = () => {
+    setModal(false);
+  };
 
   const handleClickUp = () => {
     form.changeAdditionQuantity(addition.id, "up");
@@ -10,6 +17,10 @@ export const AgregateOptionsInput = ({ addition }) => {
   const handleClickDown = () => {
     if (addition.quantity === 0) return;
     form.changeAdditionQuantity(addition.id, "down");
+  };
+
+  const handleClickInfo = () => {
+    setModal(true);
   };
 
   return (
@@ -35,6 +46,13 @@ export const AgregateOptionsInput = ({ addition }) => {
           +
         </button>
       </div>
+      <button
+        onClick={handleClickInfo  }
+        className="btn btn-error btn-xs content-center self-center"
+      >
+        Info
+      </button>
+      <Modal isOpen={modal} onClose={closeModal} type={addition.type} />
     </div>
   );
 };
