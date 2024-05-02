@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { AgregateOptionsInput } from "./AgregateOptionsInput";
 import { useFormContext } from "../../context/FormProvider";
-import { WEB_ADDITIONS } from "../../data/dataForm";
 import Euro from "../../assets/Icons/Euro";
 
 export const Checkbox = ({ productData }) => {
@@ -28,7 +27,7 @@ export const Checkbox = ({ productData }) => {
           </p>
         </div>
 
-        <div className="flex flex-row gap-5 items-center font-extrabold text-2xl px-2 ">
+        <div className="flex flex-row gap-2 items-center font-extrabold text-2xl px-2">
           <Euro />
           {productData.price}
         </div>
@@ -44,14 +43,11 @@ export const Checkbox = ({ productData }) => {
           <p className="font-medium text-base mx-2">Chose</p>
         </div>
       </div>
-      {WEB_ADDITIONS.map(
+      {form.additionsArray.map(
         (element) =>
           productData.type === "Web" &&
           check === true && (
-            <AgregateOptionsInput
-              key={element.id}
-              addition={element}
-            />
+            <AgregateOptionsInput key={element.id} addition={element} />
           )
       )}
     </div>

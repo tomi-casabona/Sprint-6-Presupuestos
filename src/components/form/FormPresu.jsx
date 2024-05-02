@@ -5,6 +5,7 @@ import { DATA_PRODUCT } from "../../data/dataForm";
 import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 import { InputDataClient } from "./InputDataClient";
+import { Quotation } from "./Quotation";
 
 export const FormPresu = () => {
   return (
@@ -17,6 +18,7 @@ export const FormPresu = () => {
           ))}
           <TotalPrice />
           <InputDataClient />
+          <Quotation />
           <button className="btn btn-ghost text-xl">
             <Link to="/">Go Home</Link>
           </button>

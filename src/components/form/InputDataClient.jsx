@@ -25,8 +25,8 @@ export const InputDataClient = () => {
   };
 
   return (
-    <div className="flex flex-col justify-evenly items-center shadow-2xl rounded-2xl bg-white hover:ring-2 hover:ring-green-600 md:w-4/5 w-full max-w-screen-lg">
-      <h3 className="font-bold text-xl px-4 md:p-8 md:pb-4 w-4/5">Data</h3>
+    <div className="flex flex-col justify-evenly items-center shadow-2xl p-4 rounded-2xl bg-white hover:ring-2 hover:ring-green-600  md:w-4/5 w-full max-w-screen-lg">
+      <h3 className="font-bold text-xl px-4  md:p-8 md:pb-4 w-4/5">Data</h3>
       <div className="flex justify-evenly items-center px-4 md:px-8 md:pb-8 md:w-4/5 w-full font-medium">
         <div className="flex flex-row gap-2 rounded">
           <input
