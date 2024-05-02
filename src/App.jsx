@@ -3,6 +3,7 @@ import { FormPresu } from "./components/form/FormPresu";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home";
 import Error from "./components/Error";
+import { FormProvider } from "./context/FormProvider";
 
 const router = createBrowserRouter([
   {
@@ -19,9 +20,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RouterProvider router={router}>
-      <FormPresu />
-    </RouterProvider>
+    <FormProvider>
+      <RouterProvider router={router}>
+        <FormPresu />
+      </RouterProvider>
+    </FormProvider>
   );
 }
 

@@ -25,7 +25,7 @@ export function FormProvider({ children }) {
   }, [services, additionsArray]);
 
   useEffect(() => {
-    if (!services.includes((item) => item.type === "Web")) {
+    if (!services.some((item) => item.type === "Web")) {
       setAdditionsArray(WEB_ADDITIONS);
     }
   }, [services]);
