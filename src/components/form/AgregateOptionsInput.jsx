@@ -47,7 +47,7 @@ export const AgregateOptionsInput = ({ addition }) => {
         </button>
       </div>
       <button
-        onClick={handleClickInfo  }
+        onClick={handleClickInfo}
         className="btn btn-error btn-xs content-center self-center"
       >
         Info
