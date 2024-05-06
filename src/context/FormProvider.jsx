@@ -13,7 +13,6 @@ export function FormProvider({ children }) {
   const [services, setServices] = useState([]);
   const [clients, setClients] = useState([]);
 
-  // Dependencias añadidas para recalcular el total cuando cambia `services` o `additionsArray`
   useEffect(() => {
     calculateTotal();
   }, [services, additionsArray]);
@@ -23,7 +22,7 @@ export function FormProvider({ children }) {
       setAdditionsArray(WEB_ADDITIONS);
     }
   }, [services]);
-  
+
   function calculateTotal() {
     let totalServices = 0;
     let totalAdditions = 0;
@@ -70,6 +69,11 @@ export function FormProvider({ children }) {
     }
   }
 
+  function resetQuoteData() {
+    setServices([]);
+    setTotal(0);
+  }
+
   function removeService(serviceForRemove) {
     const index = services.indexOf(serviceForRemove);
 
@@ -84,8 +88,14 @@ export function FormProvider({ children }) {
   }
 
   function sendClientData(newClient) {
+    let clientQuote = {
+      ...newClient,
+      total: total,
+      services: services,
+      additions: additionsArray,
+    };
     let updatedClientsArray = [...clients];
-    updatedClientsArray.push(newClient);
+    updatedClientsArray.push(clientQuote);
     setClients(updatedClientsArray);
   }
 
@@ -100,6 +110,7 @@ export function FormProvider({ children }) {
         changeAdditionQuantity,
         sendService,
         removeService,
+        resetQuoteData,
         sendClientData,
       }}
     >

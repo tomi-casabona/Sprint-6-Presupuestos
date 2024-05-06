@@ -39,13 +39,13 @@ export const Modal = ({ isOpen, onClose, type }) => {
 
       <div
         className="bg-white p-6 rounded-lg shadow-lg relative transition-transform transform-gpu duration-200 scale-105"
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+        onClick={(e) => e.stopPropagation()}
       >
         <h1 className="font-bold text-2xl">{type}</h1>
         {content.map((line, index) => (
           <p className="text-lg" key={index}>
             {line}
-          </p> // Esto crea un salto de línea entre elementos
+          </p>
         ))}
 
         <div className="flex justify-end mt-4">

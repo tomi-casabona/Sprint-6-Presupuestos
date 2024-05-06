@@ -29,7 +29,7 @@ export const AgregateOptionsInput = ({ addition }) => {
       <div className="flex justify-center items-center ml-4">
         <button
           onClick={handleClickDown}
-          className="border-2 border-gray-300 rounded-full w-6 h-6 flex justify-center items-center m-2 hover:border-gray-400 hover:scale-110 hover:cursor-pointer"
+          className="border-2 border-slate-300 rounded-full w-6 h-6 flex justify-center items-center m-2 hover:border-green-500 hover:scale-110 hover:cursor-pointer"
         >
           -
         </button>
@@ -41,7 +41,7 @@ export const AgregateOptionsInput = ({ addition }) => {
         />
         <button
           onClick={handleClickUp}
-          className="border-2 border-gray-300 rounded-full w-6 h-6 flex justify-center items-center m-2 hover:border-gray-400 hover:scale-110 hover:cursor-pointer"
+          className="border-2 border-slate-300 rounded-full w-6 h-6 flex justify-center items-center m-2 hover:border-green-500 hover:scale-110 hover:cursor-pointer"
         >
           +
         </button>

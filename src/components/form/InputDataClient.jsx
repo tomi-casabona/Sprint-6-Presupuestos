@@ -31,7 +31,17 @@ export const InputDataClient = () => {
   const saveOnClick = () => {
     if (!isDisabledButton) {
       context.sendClientData(clientData);
+      resetClientData();
+      context.resetQuoteData();
     }
+  };
+
+  const resetClientData = () => {
+    setClientData({
+      name: "",
+      telephone: "",
+      email: "",
+    });
   };
 
   const isValidEmail = (email) => {
@@ -81,16 +91,16 @@ export const InputDataClient = () => {
   };
 
   return (
-    <div className="flex flex-col justify-evenly items-center shadow-2xl p-4 rounded-2xl bg-white md:w-4/5 w-full max-w-screen-lg">
+    <div className="flex flex-col justify-evenly items-center shadow-2xl p-4 rounded-2xl bg-white md:w-4/5 w-full max-w-screen-lg hover:ring-4 hover:ring-green-500">
       <h3 className="font-bold text-xl text-center pb-4 w-4/5">
         Demand Quotation
       </h3>
 
-      <div className="flex flex-col sm:flex-row gap-4 justify-between w-full">
+      <div className="flex flex-col sm:flex-row gap-4 justify-between w-full ">
         <div className="flex flex-col gap-4 w-full sm:flex-row">
           <div className="flex-1">
             <input
-              className={`border-2 rounded py-2 px-2 text-sm w-full ${
+              className={`border-2 rounded py-2 px-2 text-sm w-full  ${
                 errors.name ? "border-red-500" : "border-gray-300"
               }`}
               type="text"
@@ -106,7 +116,7 @@ export const InputDataClient = () => {
 
           <div className="flex-1">
             <input
-              className={`border-2 rounded py-2 px-2 text-sm w-full ${
+              className={`border-2 rounded py-2 px-2 text-sm w-full${
                 errors.telephone ? "border-red-500" : "border-gray-300"
               }`}
               type="text"
@@ -122,7 +132,7 @@ export const InputDataClient = () => {
 
           <div className="flex-1">
             <input
-              className={`border-2 rounded py-2 px-2 text-sm w-full ${
+              className={`border-2 rounded py-2 px-2 text-sm w-full  hover:ring-green-600${
                 errors.email ? "border-red-500" : "border-gray-300"
               }`}
               type="text"
@@ -140,7 +150,7 @@ export const InputDataClient = () => {
         <div className="flex flex-col items-center mx-auto w-1/6">
           <button
             onClick={saveOnClick}
-            className="btn btn-success btn-sm center shadow-2xl"
+            className="btn btn-success btn-sm center shadow-2xl text-white"
             disabled={isDisabledButton}
           >
             Save

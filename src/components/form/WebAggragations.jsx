@@ -1,9 +1,5 @@
-import { useFormContext } from "../../context/FormProvider";
-
-export const WebAggregation = () => {
-  const form = useFormContext();
-
-  const webAggregations = form.additionsArray?.filter(
+export const WebAggregation = ({ client }) => {
+  const webAggregations = client.additions?.filter(
     (element) => element.quantity > 0
   );
 

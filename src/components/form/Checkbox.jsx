@@ -18,7 +18,7 @@ export const Checkbox = ({ productData }) => {
   };
 
   return (
-    <div className="flex flex-col justify-evenly items-center shadow-2xl md:w-4/5 w-full max-w-screen-lg rounded-2xl bg-white hover:ring-2 hover:ring-green-600">
+    <div className="flex flex-col justify-evenly items-center shadow-2xl md:w-4/5 w-full max-w-screen-lg rounded-2xl bg-white hover:ring-4 hover:ring-green-500">
       <div className="flex flex-col justify-evenly items-center md:p-8 md:w-4/5 w-full font-medium sm:flex-row ">
         <div>
           <h3 className="font-bold text-xl mb-3">{productData.type}</h3>
@@ -34,7 +34,7 @@ export const Checkbox = ({ productData }) => {
 
         <div className="flex">
           <input
-            className=""
+            className="checkbox checked:border-green-700 [--chkbg:theme(colors.green.500)] [--chkfg:white]"
             type="checkbox"
             onChange={handleCheckbox}
             value={productData.price}
