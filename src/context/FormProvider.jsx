@@ -93,7 +93,9 @@ export function FormProvider({ children }) {
       total: total,
       services: services,
       additions: additionsArray,
+      date: new Date(),
     };
+
     let updatedClientsArray = [...clients];
     updatedClientsArray.push(clientQuote);
     setClients(updatedClientsArray);

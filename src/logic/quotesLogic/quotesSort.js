@@ -20,6 +20,13 @@ export const sortByName = (array) => {
 };
 
 export const sortByDate = (array) => {
-  let sorted = array.sort((a, b) => a.total - b.total);
+  let sorted = array.sort((a, b) => a.date.getTime() - b.date.getTime());
   return sorted;
+};
+
+
+export const filterByQuery = (array, query) => {
+  return array.filter((element) =>
+    element.name.toLowerCase().includes(query.toLowerCase()) 
+  );
 };
