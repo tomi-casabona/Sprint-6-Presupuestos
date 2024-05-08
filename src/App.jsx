@@ -1,7 +1,7 @@
 import "./assets/index.css";
-import { FormPresu } from "./components/form/FormPresu";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./pages/Home";
+import { QuotationMaker } from "./pages/QuotationMaker";
 import Error from "./components/Error";
 import { FormProvider } from "./context/FormProvider";
 
@@ -12,8 +12,8 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "/formPresu",
-    element: <FormPresu />,
+    path: "/QuotationMaker",
+    element: <QuotationMaker />,
     errorElement: <Error />,
   },
 ]);
@@ -22,7 +22,7 @@ function App() {
   return (
     <FormProvider>
       <RouterProvider router={router}>
-        <FormPresu />
+        <QuotationMaker />
       </RouterProvider>
     </FormProvider>
   );

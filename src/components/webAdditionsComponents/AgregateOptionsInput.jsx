@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useFormContext } from "../../context/FormProvider";
-import { Modal } from "./Modal";
+import { useFormContext } from "../../context/FormProvider"
+import Modal from "./Modal";
 
 export const AgregateOptionsInput = ({ addition }) => {
   const form = useFormContext();
@@ -41,14 +41,14 @@ export const AgregateOptionsInput = ({ addition }) => {
         />
         <button
           onClick={handleClickUp}
-          className="border-2 border-slate-300 rounded-full w-6 h-6 flex justify-center items-center m-2 hover:border-green-500 hover:scale-110 hover:cursor-pointer"
+          className="border-2 border-slate-300 rounded-full w-6 h-6 flex justify-center items-center m-2  hover:border-green-500 hover:scale-110 hover:cursor-pointer"
         >
           +
         </button>
       </div>
       <button
         onClick={handleClickInfo}
-        className="btn btn-error btn-xs content-center self-center"
+        className="btn btn-error btn-xs content-center self-center  hover:ring-4 hover:ring-green-500"
       >
         Info
       </button>

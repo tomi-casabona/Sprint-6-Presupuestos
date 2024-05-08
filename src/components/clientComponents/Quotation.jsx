@@ -1,9 +1,9 @@
 import Euro from "../../assets/Icons/Euro";
-import { WebAggregation } from "./WebAggragations";
+import { WebAggregation } from "../webAdditionsComponents/WebAggragations";
 
 export function Quotation({ client }) {
   return (
-    <div className="flex flex-row justify-evenly items-center mb-2 gap-4 shadow-2xl p-4 rounded-2xl bg-white w-full max-w-screen-lg hover:ring-4 hover:ring-green-500">
+    <div className="flex flex-row justify-evenly items-center m-2 gap-4 shadow-2xl p-4 rounded-2xl bg-white w-full max-w-screen-lg hover:ring-4 hover:ring-green-500">
       <div className="flex flex-col">
         <h3 className="font-bold text-2xl mb-3">
           {client.name.charAt(0).toUpperCase() + client.name.slice(1)}

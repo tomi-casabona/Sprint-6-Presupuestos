@@ -30,3 +30,14 @@ export const filterByQuery = (array, query) => {
     element.name.toLowerCase().includes(query.toLowerCase()) 
   );
 };
+
+export const sortBy = (by, setSortedQuotes,sortedQuotes) => {
+  if (by === "total") {
+    setSortedQuotes([...sortByTotal(sortedQuotes)]);
+  } else if (by === "name") {
+    setSortedQuotes([...sortByName(sortedQuotes)]);
+  } else if (by === "date") {
+    setSortedQuotes([...sortByDate(sortedQuotes)]);
+  }
+};
+

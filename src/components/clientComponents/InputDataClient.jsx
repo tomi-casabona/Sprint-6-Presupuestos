@@ -29,8 +29,9 @@ export const InputDataClient = () => {
   const context = useFormContext();
 
   const saveOnClick = () => {
+    const {total, services, additionsArray} = context;
     if (!isDisabledButton) {
-      context.sendClientData(clientData);
+      context.sendClientData(clientData, total, services, additionsArray);
       resetClientData();
       context.resetQuoteData();
     }
@@ -98,11 +99,9 @@ export const InputDataClient = () => {
 
       <div className="flex flex-col sm:flex-row gap-4 justify-between w-full ">
         <div className="flex flex-col gap-4 w-full sm:flex-row">
-          <div className="flex-1">
+          <div className={`  text-sm p-2}`}>
             <input
-              className={`border-2 rounded py-2 px-2 text-sm w-full  ${
-                errors.name ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`rounded text-sm p-2 w-full content-center self-center focus:outline-none bg-slate-300`}
               type="text"
               name="name"
               placeholder="Name"
@@ -110,31 +109,13 @@ export const InputDataClient = () => {
               onChange={handleInputChange}
             />
             {errors.name && (
-              <div className="text-red-500 text-xs">{errors.name}</div>
+              <div className="text-red-500 text-xs px-1">{errors.name}</div>
             )}
           </div>
 
-          <div className="flex-1">
+          <div className={`  text-sm p-2}`}>
             <input
-              className={`border-2 rounded py-2 px-2 text-sm w-full${
-                errors.telephone ? "border-red-500" : "border-gray-300"
-              }`}
-              type="text"
-              name="telephone"
-              placeholder="Telephone"
-              value={clientData.telephone}
-              onChange={handleInputChange}
-            />
-            {errors.telephone && (
-              <div className="text-red-500 text-xs">{errors.telephone}</div>
-            )}
-          </div>
-
-          <div className="flex-1">
-            <input
-              className={`border-2 rounded py-2 px-2 text-sm w-full  hover:ring-green-600${
-                errors.email ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`rounded text-sm p-2 w-full border-none content-center self-center focus:outline-none bg-slate-300`}
               type="text"
               name="email"
               placeholder="Email"
@@ -143,6 +124,20 @@ export const InputDataClient = () => {
             />
             {errors.email && (
               <div className="text-red-500 text-xs">{errors.email}</div>
+            )}
+          </div>
+
+          <div className={`  text-sm p-2}`}>
+            <input
+              className={`rounded text-sm p-2 w-full border-none content-center self-center focus:outline-none bg-slate-300`}
+              type="text"
+              name="telephone"
+              placeholder="Telephone"
+              value={clientData.telephone}
+              onChange={handleInputChange}
+            />
+            {errors.telephone && (
+              <div className="text-red-500 text-xs">{errors.telephone}</div>
             )}
           </div>
         </div>
